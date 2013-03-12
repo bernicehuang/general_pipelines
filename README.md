@@ -1,4 +1,4 @@
 general_pipelines
 =================
 
-General pipeline scrips
+I'll get back to you on the purpose of this repository.
