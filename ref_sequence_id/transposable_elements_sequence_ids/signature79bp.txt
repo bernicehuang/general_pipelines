@@ -1,0 +1,4 @@
+>LmSIDER2a_79bp  | Leishmania | LmSIDER2a| DNA  | length=79
+>LmSIDERba_79bp  | Leishmania | LmSIDER2b| DNA  | length=79
+>NARTc_78bp  | T.brucei | NARTc | DNA  | length=78
+>RIME_79bp  | T.cruzi |RIME| DNA  | length=79
