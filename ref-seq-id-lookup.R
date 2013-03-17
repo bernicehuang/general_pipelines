@@ -2,7 +2,7 @@ library(reshape2)
 
 
 # specify the directory where the sequence Id's are
-seq.id.dir <- "/Users/huangb2/Dropbox/Bernice/general_pipelines/ref_sequence_id/gene_fams"
+seq.id.dir <- "~/Dropbox/bernice/general_pipelines/ref_sequence_id/gene_fams"
 
 # Pattern used to match and identify reference id files
 input.pattern <- "txt$"
@@ -35,20 +35,20 @@ for (f in input.files) {
 ref.df <- data.frame(do.call("rbind", seq.ids), row.names = NULL)
 
 #rename columns to  make them informative
-names(ref.df) <- c("general_type", "gene_fam", "seq_id")
+# names(ref.df) <- c("general_type", "gene_fam", "seq_id")
 
 # Format the sequence ID so it will match ("LmjF13.0280" => "LmjF.13.0280" )
-ref.df$seq_id <- gsub("LmjF", "LmjF.", ref.df$seq_id)
+ref.df$V1 <- gsub("LmjF", "LmjF.", ref.df$V1)
 
 
 # make two look up tables. The first for the specific gene family the other for the broader type (leish or tcruzi)
-gene.families <- ref.df$gene_fam
+gene.families <- ref.df$X10
 # use the sequence IDs as the look up factor
-names(gene.families) <- ref.df$seq_id
+names(gene.families) <- ref.df$V1
 
 # 2nd look up table
-gene.type <- ref.df$general_type
-names(gene.type) <- ref.df$seq_id
+gene.type <- ref.df$X9
+names(gene.type) <- ref.df$V1
 
 # How to use the look up table
 df$new_column_names <- gene.families[as.character(df$match_column)]
