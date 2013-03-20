@@ -5,9 +5,7 @@
 input_dir=$1/*
 
 
-# this script is designed to be run within the project folder
-# within the project folder create a folder called genome files: 
-
+# purpose is to make life easier. 
 
 # =============================
 # = Create output directories =
@@ -59,7 +57,9 @@ for f in $input_dir; do
 	~/bin/run_etandem.sh $f tandem_repeats/$f.etandem
 done;
 
-# 
+ 
+# blah blah sort through and clean up the rest of that later. 
+
 # allgff=/home/huangb2/projects/comparative_genomes/carly_transposable_database/all_transposable_elements_${org}_4.2.sorted.fasta.blastnres.gff
 # 
 # 
