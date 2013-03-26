@@ -5,4 +5,7 @@ Software tools
 
 * Manual genome annotation
 
+###MetAmos
+
+*metagenomics assembly pipeline
 
