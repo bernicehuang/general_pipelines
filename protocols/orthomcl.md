@@ -72,7 +72,7 @@ How to get single copy orthologs
 	
 ###mcl
 * go back to the orthomcl project directory on Godel.
-	* ```/home/jmalves/bin/mcl mclInput --abc -t 10 -I 1.5 -o mclOutput```
+	* ```~/bin/mcl mclInput --abc -t 10 -I 1.5 -o mclOutput```
 
 ###orthomclMclToGroups
 * ```/usr/global/blp/bin/orthomclMclToGroups species-prefix 1000 < mclOutput > groups.txt```
