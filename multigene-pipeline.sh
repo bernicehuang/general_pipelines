@@ -26,9 +26,9 @@ fi
 # ============================
 # = Reference sequence files =
 # ============================
-leish=~/blast_database/reference_seq/protein/LMF_genefam.faa
-tcruzi=~/blast_database/reference_seq/protein/tcruzi_genefam.faa
-slacs=~/blast_database/reference_seq/protein/SLACS_CZAR.faa
+# reference file includes leishmania gene families, t.cruzi CL gene families and Carly's transposable elements database.
+ref_fam=~/blast_database/reference_seq/protein/all_ref.faa
+
 
 
 # ======================
@@ -36,23 +36,10 @@ slacs=~/blast_database/reference_seq/protein/SLACS_CZAR.faa
 # ======================
 for f in $input_dir; do 
 	d=$(basename ${f})
-	i=$(basename ${leish})
-	# blast the leishmania gene families against the genomes. Store output in multigene_fam folder.
+	i=$(basename ${ref_fam})
+	# blast the gene families and transposable elements db against the genomes. Store output in multigene_fam folder.
 	out=${d%.*}_${i%.*}_blastxres
-	/usr/global/blp/bin/blastall -p blastx -m 8 -i $leish -d $f > multigene_fam/$out
-	
-	# blast the tcruzi gene families against the genomes. Store output in multigene_fam folder.
-	t=$(basename ${tcruzi})
-	out_t=${d%.*}_${t%.*}_blastxres
-	/usr/global/blp/bin/blastall -p blastx -m 8 -i $tcruzi -d $f > multigene_fam/$out_t
-	
-	# blast the slacs/transposable seq against the genomes. Store output in transposable folder.
-	te=$(basename ${slacs})
-	out_te=${d%.*}_${te%.*}_blastxres
-	/usr/global/blp/bin/blastall -p blastx -m 8 -i $tcruzi -d $f > transposable_elements/$out_te
-	echo $d
-	echo $i
-	echo $out
+	/usr/global/blp/bin/blastall -p blastx -m 8 -i $ref_fam -d $f > multigene_fam/$out
 	
 	~/bin/run_etandem.sh $f tandem_repeats/$f.etandem
 done;
