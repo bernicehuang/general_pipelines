@@ -82,7 +82,7 @@ How to get single copy orthologs
 
 ### To get the single copy orthologs (SCO) from the groups.txt file
 * SCO from groups.txt: You want to find all instances where all the species are present but there is only 1 gene from each. 
-	* ```cat groups.txt | perl -ne "@t=split/\s+/$_;print if (@t==5)"| grep tbat | grep tdio | grep tmar | grep tcg > groups.SCO.txt```
+	* ```cat groups.txt | perl -ne "@t=split/\s+/$_;print if (@t==5)"| grep TcBat | grep Tdio | grep Tmar | grep TcG > groups.SCO.txt```
 	* ```wc -l groups.SCO.txt```
 	* **Output**: (will look something like this)
 		* tbat-tdio-tmar-tcg1000: Tbat|Tbat_gene_00001 Tdio|Tdio_gene_00002 
