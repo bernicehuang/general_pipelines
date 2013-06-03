@@ -93,5 +93,8 @@ How to get single copy orthologs
 
 	
 
-.
+### To make groups.txt file into a 3 column files
+* perl /usr/global/blp/bin/makeGroupFileFlat.pl 1-groups.txt 2-groups.out.txt
+
+* this will create a three column file that will make it much easier to manage the data. 
 
