@@ -47,7 +47,7 @@ How to get single copy orthologs
 
 ###Run orthomcl on new Rashnu
 * Log in to the new Rashnu server. 
-	* log in: ```ssh huangb2@128.172.189.216```
+	* log in: ```ssh huangb2@rashnu.csbc.edu```
 	* Create a folder called orthomcl
 * From Godel: Copy the similarSequences.txt from Godel to the new Rashnu server
 	* ```scp similarSequences.txt huangb2@128.172.189.216:/huangb2/orthomcl/```
