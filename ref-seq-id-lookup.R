@@ -4,6 +4,8 @@ library(reshape2)
 # specify the directory where the sequence Id's are
 seq.id.dir <- "~/Dropbox/bernice/general_pipelines/ref_sequence_id/gene_fams"
 
+seq.id.dir <- "~/Dropbox/Bernice/general_pipelines/ref_sequence_id/gene_fams"
+
 # Pattern used to match and identify reference id files
 input.pattern <- "txt$"
 
