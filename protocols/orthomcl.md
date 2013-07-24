@@ -42,7 +42,7 @@ How to get single copy orthologs
 	
 #### orthomclBlastParser
 * This step parses the blast output into a format that can be loaded into the orthomcl database.
-	* ```/usr/global/blp/bin/orthomclBlastParser blast_file ./compliantFasta```
+	* ```/usr/global/blp/bin/orthomclBlastParser blast_file ./compliantFasta > similarSequences.txt```
 * **Output**: ```similarSequences.txt``` This will now be loaded into the MySQL database.
 
 ###Run orthomcl on new Rashnu
@@ -82,14 +82,17 @@ How to get single copy orthologs
 
 ### To get the single copy orthologs (SCO) from the groups.txt file
 * SCO from groups.txt: You want to find all instances where all the species are present but there is only 1 gene from each. 
-	* ```cat groups.txt | perl -ne "@t=split/\s+/$_;print if (@t==5)"| grep TcBat | grep Tdio | grep Tmar | grep TcG > groups.SCO.txt```
+	* ```cat groups.txt | perl -ne "@t=split/\s+/$_;print if (@t==6)"| grep "TcBat_1994" | grep "Tdio_gene" | grep "Tmar_gene" | grep "TcG_gene" | grep "Tsp_bat" > groups.SCO.txt```
 	* ```wc -l groups.SCO.txt```
 	* **Output**: (will look something like this)
 		* tbat-tdio-tmar-tcg1000: Tbat|Tbat_gene_00001 Tdio|Tdio_gene_00002 
 * For each organism extract out the gene id so that you can use it to pull out those gene coordinates from the gff.file
 	* ```Org_genes.gff``` files are in ```genome_files/other``` 
 	* Extract the gene Ids from the groups.SCO.txt 
-		* ```cat groups.SCO.txt |perl -ne 'chomp;@t =split/\s+/; foreach $x (@t) {print "$x\n" if $x=~/^Tbat/}' Tbat.SCO.geneid```
+		* ```cat groups.SCO.txt |perl -ne 'chomp;@t =split/\s+/; foreach $x (@t) {print "$x\n" if $x=~/^tbat\|/}' > tbat.SCO.geneid```
+	* Clean up id's (tmar|Tmar_gene_07696 ==> Tmar_gene_07696)
+		* ```awk '$1 ~/^tmar/ {gsub(/tmar\|/,""); print;}' tmar.SCO.geneid >  tmar.SCO.geneid.clean```
+	* Extract the SCO gene positions from the gff files
 
 	
 
