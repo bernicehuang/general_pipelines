@@ -47,10 +47,11 @@ How to get single copy orthologs
 
 ###Run orthomcl on new Rashnu
 * Log in to the new Rashnu server. 
-	* log in: ```ssh huangb2@rashnu.csbc.edu```
+	* log in: ```ssh huangb2@rashnu.csbc.vcu.edu```
 	* Create a folder called orthomcl
 * From Godel: Copy the similarSequences.txt from Godel to the new Rashnu server
 	* ```scp similarSequences.txt huangb2@128.172.189.216:/huangb2/orthomcl/```
+	* or just use transmit which is so much easier.
 * Run orthomcl.sh
 	* ```sh orthomcl.sh```
 	* this is a script that Vishal wrote for Katie: it will runs the following:
@@ -93,11 +94,12 @@ How to get single copy orthologs
 	* Clean up id's (tmar|Tmar_gene_07696 ==> Tmar_gene_07696)
 		* ```awk '$1 ~/^tmar/ {gsub(/tmar\|/,""); print;}' tmar.SCO.geneid >  tmar.SCO.geneid.clean```
 	* Extract the SCO gene positions from the gff files
+		* ```perl ~/bin/extract_gff.pl TcBat_1994_genes.gff tbat.SCO.geneid.clean tbat.SCO.gff```
 
 	
 
 ### To make groups.txt file into a 3 column files
-* perl /usr/global/blp/bin/makeGroupFileFlat.pl 1-groups.txt 2-groups.out.txt
+* perl /usr/global/blp/bin/makeGroupFileFlat.pl 1-groups.txt 2-groups.flat.txt
 
 * this will create a three column file that will make it much easier to manage the data. 
 
