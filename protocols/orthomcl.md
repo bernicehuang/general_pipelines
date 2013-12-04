@@ -78,7 +78,7 @@ How to get single copy orthologs
 ###orthomclMclToGroups
 * ```/usr/global/blp/bin/orthomclMclToGroups species-prefix 1000 < mclOutput > groups.txt```
 	* **species-prefix**: this is an arbitrary string to use as a prefix for your group IDs.
-		* tbat-tdio-tmar-tcg
+		* tbat-tdio-tmar-tcg-bat
 	* 1000 is an arbitrary starting point for your group IDs. 
 
 ### To get the single copy orthologs (SCO) from the groups.txt file
